@@ -1,0 +1,47 @@
+.login-container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; /* Full height */ 
+} 
+
+.login-card { 
+    padding: 20px; 
+    border-radius: 5px; 
+    box-shadow: 0 0 10px rgb(60, 141, 60);
+    max-width: 400px; 
+    width: 100%; 
+    background: #fff; 
+} 
+
+.login-form { 
+    display: flex; 
+    flex-direction: column;
+ } 
+ 
+ .login-form input { 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+} 
+
+.login-form button { 
+    padding: 10px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #007bff; 
+    color: white; 
+    cursor: pointer; 
+} 
+
+.login-form button:hover { 
+    background-color: #0056b3; 
+}
+
+/* styles.css */
+.login-error {
+    color: red; /* Or any color you prefer for error messages */
+    margin-bottom: 10px; /* Spacing between error message and form fields */
+  }
+  

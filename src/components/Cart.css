@@ -1,0 +1,17 @@
+.cart-container {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+}
+
+.cart-item p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.cart-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
