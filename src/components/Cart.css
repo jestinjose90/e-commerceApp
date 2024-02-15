@@ -1,17 +1,39 @@
-.cart-container {
-    max-height: 400px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    background-color: #fafafa;
-}
-
-.cart-item p {
-    margin: 5px 0;
-    color: #666;
-}
-
-.cart-item h3 {
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+  }
+  
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  .cart-item h3 {
     margin: 0;
     font-size: 1.2em;
     color: #333;
-}
+  }
+  
+  .cart-item p {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  .cart-container {
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ddd; /* Light border */
+    background-color: #fafafa; /* Light background */
+    /* ... other styles ... */
+  }
+
+  .cart-item button {
+    /* Button styles */
+  }
+  
+  .cart-item button:hover {
+    background-color: #f5f5f5; /* Slight background change on hover */
+    cursor: pointer; /* Change cursor to indicate clickability */
+  }

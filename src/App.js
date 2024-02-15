@@ -159,7 +159,7 @@ import OrderDetails from './OrderDetails';
         <Route path='/' element={!isAuthenticated ? <Login onLoginSuccess={handleLoginSuccess} /> :
          <Navigate to = "/dashboard" replace /> } />  
        
-       <Route path="/dashboard" element = {isAuthenticated ? <MainLayout addToCart={addToCart} cartItems={cartDetails} onLogout={handleLogout} userName={decodedToken} onCheckout={handleCheckout}  /> :
+       <Route path="/dashboard" element = {isAuthenticated ? <MainLayout addToCart={addToCart} cartItems={cartDetails} onLogout={handleLogout} userName={decodedToken} onCheckout={handleCheckout} setCartItem={setCartItem}  /> :
         <Navigate to = '/' replace/>} />
         <Route path="/order-confirmation" element={<OrderConfirmation orderId={orderId}/>}/>
         <Route path="/orders/:orderId" element={<OrderDetails/>}/>

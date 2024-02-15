@@ -6,7 +6,7 @@ import Cart from './Cart';
 import OrderService from '../OrderService';
 
 
-const MainLayout = ({addToCart,cartItems,onLogout,userName}) => {
+const MainLayout = ({addToCart,cartItems,onLogout,userName, setCartItem}) => {
     const [orderPlaced, setOrderPlaced] = useState(false);
     console.log('cartItems are:', cartItems);
 
@@ -49,7 +49,7 @@ const MainLayout = ({addToCart,cartItems,onLogout,userName}) => {
                 </div>
 
                 <div className="cart-container">
-                    <Cart cartItems={cartItems} onCheckout={onCheckout} /> {/* Use the Cart component */}
+                    <Cart cartItems={cartItems} onCheckout={onCheckout} orderPlaced={orderPlaced} setCartItem={setCartItem} userName={userName} /> {/* Use the Cart component */}
                     {orderPlaced && (
                         <div>
                             <p>Order placed successfully!</p>
