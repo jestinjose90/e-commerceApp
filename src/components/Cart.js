@@ -46,33 +46,31 @@ const Cart = ({cartItems, setCartItem , userName })=> {
         try  {
             if(userName) {
                 const userId = Number(userName);
-                const orderedItemsResponse = await fetch(`http://localhost:8084/orders/${userId}`);
+                const orderedItemsResponse = await fetch(`http://localhost:8084/orders/users/${userId}/orders`);
                 if(!orderedItemsResponse) {
-                    throw new Error('Failed to fetch orderedItems');
+                    throw new Error('Failed to fetch orderedItems'); 
                 }
                 const orders = await orderedItemsResponse.json();
                 console.log('retrieved orderedItems', orders);
+                console.log(orders[orders.length-1].totalPrice);
 
                let newOrder = {
                     userId: userName,
-                    status: orders.status,
-                    totalPrice: orders.totalPrice
+                    status: orders[orders.length - 1 ] .status,
+                    totalPrice: orders[orders.length - 1].totalPrice
                 };
 
                 console.log(newOrder);
 
                 let displayOrderedItems = [...orderedItems,newOrder];
                 setOrderedItems(displayOrderedItems);
-                console.log(orderedItems);
+                console.log(displayOrderedItems);
             }
         } catch(error) {
             console.error('Error fetching order details', error);
         }
         
     };
-
-
-
 
 
    
@@ -95,6 +93,7 @@ const Cart = ({cartItems, setCartItem , userName })=> {
         console.log(paymentResponse);
         if(paymentResponse && paymentResponse.status == 'SUCCESS') {
            setCartItem([]);
+           setOrderedItems([]);
             setPaymentStatus({success: true, message: 'Payment successfully added'});
             
         } else {
@@ -124,13 +123,12 @@ const Cart = ({cartItems, setCartItem , userName })=> {
 
            
             <button onClick={displayOrder}>Place Order</button>
-           
+              <h5>Order Summary</h5>
                 {orderedItems.map((item,index ) =>
-                   (<div className= "hello" key={index}>
-                      <h5>Order Summary</h5>
-                      <p>{orderStatus.message}</p> 
-                      <p>TotalPrice: ${item.totalPrice}</p>
-                      
+                   (<div className= "cart-item" key={index}>
+                     <h3>ShippingFee : 0.00</h3>
+                      <h3>TotalPrice:${item.totalPrice}</h3>
+                        
                     </div>    
              ))}
 
